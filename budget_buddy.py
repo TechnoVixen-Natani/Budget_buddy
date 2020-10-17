@@ -42,7 +42,7 @@ def cash_on_hand():
 #####Program is still a WIP. Changes will be made.######
 
 # def monthly_chart():
-    # current_month = datetime.now().strftime('%B')
+current_month = datetime.now().strftime('%B')
     # my_data = [expenses and deposits here]
     # my_labels = 'Expenses', 'Deposits'
     # plt.pie(my_data, labels=my_labels,autopct='%1.1f%%')
@@ -50,7 +50,12 @@ def cash_on_hand():
     # plt.axis('equal')
     # plt.show()
     
-
+# menu = ("1.Deposit\n"
+       # "2.Expense\n"
+       # "3.Cash on hand\n"
+       # "4.Balance\n"
+       # "5.Create Chart\n"
+       # "5.Quit\n")
     
 # Using os module to determine the current users desktop path so we can 
 # make the budget database file on the desktop so it is easier to find.
@@ -65,29 +70,27 @@ if os.path.exists(default_path):
 else:
     pass
 
-def create_connection(db_file):
+def sql_connection(db_file):
     conn = None
     try:
         conn = sqlite3.connect(db_file)
-        print('Connected succsefully to {} using Sqlite3 version {}!'.format(default_path, sqlite3.version))
+        print('Connected succsefully to budget.db using Sqlite3 version {}!'.format(sqlite3.version))
     except Error as e:
         print(e)
     finally:
         if conn:
             conn.close()
 
-if __name__ == '__main__':
-    create_connection(default_path)
+# if __name__ == '__main__':
+    # sql_connection(default_path)
+
+
+def sql_table(con):
+    cursorObj = conn.cursor()
+    cursorObj.execute("CREATE TABLE {}(deposit integer, expenses integer, {} integer, balance integer)".format(current_month,'Cash on Hand'))
+    conn.commit()
+conn = sql_connection(default_path)
+sql_table(conn)
 
 
 
-
-
-
-
-menu = ("1.Deposit\n"
-        "2.Expense\n"
-        "3.Cash on hand\n"
-        "4.Balance\n"
-        "5.Create Chart\n"
-        "5.Quit\n")
