@@ -96,13 +96,13 @@ def sql_connection(db_file):
             conn.close()
         return conn
 
-def sql_table(conn):
+def monthly_table(conn):
     cursorObj = conn.cursor()
-    cursorObj.execute("CREATE TABLE {}(Deposit integer, Expenses integer, {} integer, Balance integer, Date text)".format(current_month,'Cash_on_Hand'))
+    cursorObj.execute(f"CREATE TABLE {current_month}(Deposit integer, Expenses integer, Cash_On_Hand integer, Balance integer, Date text)")
     conn.commit()
 conn = sql_connection(default_path)
 if conn:
-    sql_table(conn)
+    monthly_table(conn)
 else:
     print('Exiting')
 
