@@ -45,4 +45,7 @@ If you enter 6, the program will stop the current process it is doing, saving al
 
 # Work in progress
 This program is a work in progress, functionality will vary as I develop the program. Feedback and error reporting is appreciated.
+
+THE NAME WAS ORIGINALLY A QUICK OFF THE TOP OF MY HEAD  QUIP.  BUT I DID A LITTLE SEARCHING AND FOUND A LOT OF BUDGETING PROGRAMS ARE NAMED THIS SAME THING. I WOULD LIKE TO PROPOSE  A NAME CHANGE AND I AM OPEN TO SUGGESTIONS. IF YOU HAVE ANY PLEASE FEEL FREE TO LET ME KNOW VIA EMAIL OR POST IT IN THE ISSUES SECTION ON THE REPO. TITLE IT "NAME SUGGESTION" ALL CAPS PLEASE. ALL SUGGESTIONS MUST BE SAFE FOR WORK-UNFORTUNATE I KNOW. AND THEY NEED TO BE SERIOUS SUGGESTIONS.
+
 Please direct bug reports to fayth.c@technovixen-codes.net
