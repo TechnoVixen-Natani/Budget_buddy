@@ -27,10 +27,8 @@ Once you open the program you should be greeted with a welcome message and short
 Please select an option out of the menu below.
 1.Deposit
 2.Expense
-3.Cash on Hand
-4.Balance
-5.Create Chart
-6.Quit
+3.Create Chart
+4.Quit
 
 Select number '1' by typing '1' and hit enter. (1 without the quotes)
 You are then prompted to enter the deposit amount. Using numbers numbers only.
@@ -40,7 +38,7 @@ The program will keep track of the deposit.
 
 The same goes for an expense. You don't even need to use a negative sign. The program will automatically calculate out the monthly balance with each deposit and expense entered. Subtracting all expenses from the total deposits.
 
-If you enter 6, the program will stop the current process it is doing, saving all data entered prior to pressing 6, to the database. Then it will give its sad 'Are you sure you done?' message before prompting to "press any key to exit..."
+If you enter 4, the program will stop the current process it is doing, saving all data entered prior to pressing 4, to the database. Then it will give its sad 'Are you sure you done?' message before prompting to "press any key to exit..."
 ---END EXAMPLE--- 
 
 # Work in progress
