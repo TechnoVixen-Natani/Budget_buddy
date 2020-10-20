@@ -55,11 +55,7 @@ def sql_connection(db_file):
 
 def monthly_table(conn):
     cursorObj = conn.cursor()
-<<<<<<< Updated upstream
-    cursorObj.execute(f"CREATE TABLE {current_month}(Deposit integer, Expenses integer, Cash_On_Hand integer, Balance integer, Date text)")
-=======
-    cursorObj.execute(f"CREATE TABLE {current_month} (Deposit integer, Expense_Amount integer,Expense_Type text, Cash_on_Hand integer, Balance integer, Date text)")
->>>>>>> Stashed changes
+    cursorObj.execute(f"CREATE TABLE {current_month} (Deposit integer, Expense_Amount integer, Expense_Type text, Cash_on_Hand integer, Balance integer, Date text)")
     conn.commit()
 conn = sql_connection(default_path)
 if conn:
