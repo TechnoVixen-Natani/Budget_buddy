@@ -56,16 +56,8 @@ def sql_connection(db_file):
         
 
 def monthly_table(conn):
-    cursorObj = conn.cursor()
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    cursorObj.execute(f"CREATE TABLE {current_month}(Deposit integer, Expenses integer, Cash_On_Hand integer, Balance integer, Date text)")
-=======
-    cursorObj.execute(f"CREATE TABLE {current_month} (Deposit integer, Expense_Amount integer,Expense_Type text, Cash_on_Hand integer, Balance integer, Date text)")
->>>>>>> Stashed changes
-=======
-    cursorObj.execute(f"CREATE TABLE IF NOT EXISTS {current_month} (Deposit float, Deposit_Date real, Expense_Amount float, Expense_Type text, Cash_on_Hand float, Balance float)")
->>>>>>> Stashed changes
+    cursor_obj = conn.cursor()
+    cursor_obj.execute(f"CREATE TABLE IF NOT EXISTS {current_month} (Deposit float, Deposit_Date real, Expense_Amount float, Expense_Type text, Cash_on_Hand float, Balance float)")
     conn.commit()
     print(f'Table {current_month} successfully created in budget.db')
 conn = sql_connection(default_path)
@@ -90,13 +82,14 @@ def monthly_deposit_total():
     cursor.execute(mdt_query)
     total = 0
     for row in cursor:
-        total += row[0]
+        deposit = row[0] if row[0] else 0
+        total += deposit
     print(f"Your total deposits this month is: ${total}")
     
-def insert_expenses(amt):
+def insert_expenses(expense_type, cost):
     insert_expense_command = """insert into {} (Expense_Type, Expense_Amount) values (?,?)""".format(current_month)
-    insert_expense_name = str()
-    insert_expense_amt = amt
+    insert_expense_name = expense_type
+    insert_expense_amt = cost
     multi_expense_insert = insert_expense_name, insert_expense_amt
     conn.execute(insert_expense_command, multi_expense_insert)
     conn.execute("commit;")

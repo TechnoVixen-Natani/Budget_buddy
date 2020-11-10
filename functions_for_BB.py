@@ -12,9 +12,6 @@ of the program.
 import budget_buddy
 
 
-total_money = 0
-
-
 def deposits():
     """Deposits function so we can call it later on"""
     return float(input('Please enter deposit amount:'))
@@ -25,7 +22,6 @@ def input_expense_item() -> tuple:
     Prompt the user to enter an expense type, and the amount for the expense
     :return: Tuple - expense type, amount
     """
-
     expense_type = input("What is the expense item?\n").capitalize()
     cost = None
 
@@ -37,16 +33,10 @@ def input_expense_item() -> tuple:
             cost = float(temp)
 
         except ValueError:
-            print(f"{temp} - was an invalid entry. Please make sure you entered a valid number")
-
-    # This is how to return a tuple. This means you can assign two variables when calling this function as seen below
+            print(f"{temp} - was an invalid entry. Please make sure you entered a valid number\n")
+    print(f'User wants to add {expense_type} for ${cost}\n')
     return expense_type, cost
-
-
-#def balance(expense_amount: int):
-    #"""Balance function to be used later on as well"""
-    #return total_money - expense_amount
-
+   
 
 def cash_on_hand():
     """
@@ -59,33 +49,24 @@ def cash_on_hand():
 while True:
     menu_option = input("What option do you want to do?\n" 
                         "1: Enter deposit\n"
-                        "2: Enter cash on hand\n"
-                        "3: Enter expenses\n"
-                        "4: Monthly Deposit Total\n")
+                        "2: Enter Expenses\n"
+                        "3: Monthly Deposits Total\n"
+                        "4: Monthly Balance\n\n")
     
     if menu_option == "1":
         deposit_amount = deposits()
-        #total_money += deposit_amount
         budget_buddy.insert_deposits(deposit_amount)
         
     elif menu_option == "2":
-        cash_amount = cash_on_hand()
-        #total_money += cash_amount
-        budget_buddy.insert_cash(cash_amount)
+        budget_buddy.insert_expenses(*input_expense_item())
 
     elif menu_option == "3":
-        #new_expense_type, new_expense_amount = input_expense_item()
-        #print(f"The user wants to add {new_expense_type} for ${new_expense_amount}")
-        expense_type, cost = input_expense_item()
-        budget_buddy.insert_expenses(input_expense_item)
-        #Code below was used previously, attempting changes but keeping the code just in case for a fall back 
-        #current_balance = balance(new_expense_amount) + cash_on_hand()
-        #total_money = current_balance
-        #print(f"Total balance is ${total_money}")
-    
-    elif menu_option == "4":
         budget_buddy.monthly_deposit_total()
 
+    
+    elif menu_option == "4":
+        #this command will take the deposits, subtract expenses and ask user if they want to add cash on hand
+        print('Command not implimented yet, please try again later')
 
     
 
